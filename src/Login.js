@@ -8,7 +8,11 @@ const Login = ({ setUser }) => {
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState({ type: "", text: "" });
 
- const handleRegister = async () => {
+ const handleRegister = if (email === "" || password === "") { 
+   alert("need to fill data");
+ } else {
+   
+   async () => {
   const deviceId = getDeviceId();
 
   // Check if device already has registered an account
@@ -16,7 +20,7 @@ const Login = ({ setUser }) => {
     .from("user_devices")
     .select("*")
     .eq("device_id", deviceId)
-    .single();
+    .single(); }
 
   if (exists) {
     alert("This device already created an account.");
