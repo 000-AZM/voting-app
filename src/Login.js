@@ -55,10 +55,24 @@ const Login = ({ setUser }) => {
       {msg.text && <Alert severity={msg.type} sx={{ mb: 2 }}>{msg.text}</Alert>}
       <TextField label="Email" fullWidth sx={{ mb: 2 }} value={email} onChange={e => setEmail(e.target.value)} />
       <TextField label="Password" type="password" fullWidth sx={{ mb: 2 }} value={password} onChange={e => setPassword(e.target.value)} />
-      <Button variant="contained" fullWidth onClick={handleLogin} sx={{ mb: 1 }}>Login</Button>
-      <Button variant="outlined" fullWidth onClick={handleRegister}>Register</Button>
+      <Button class="glow-btn" variant="contained" fullWidth onClick={handleLogin} sx={{ mb: 1 }}>Login</Button>
+      <Button class="glow-btn" variant="outlined" fullWidth onClick={handleRegister}>Register</Button>
     </Box>
   );
 };
 
+<style>
+.glow-btn {
+  padding: 12px 24px;
+  background: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.glow-btn:hover {
+  box-shadow: 0 0 15px #6200ea, 0 0 35px #6200ea;
+}
+</style>
 export default Login;
